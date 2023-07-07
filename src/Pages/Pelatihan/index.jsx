@@ -26,7 +26,10 @@ const index = () => {
       .then((res) => {
         setPelatihan(res?.data?.data?.[0]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        router("/login");
+      });
   }, [])
 
   const handleChange = (e) => {
