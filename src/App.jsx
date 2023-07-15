@@ -10,6 +10,7 @@ import Login from './Pages/Auth/login'
 import Register from './Pages/Auth/register'
 import Listpengajar from '../src/Pages/listPengajar/index'
 import Buatpelatihan from './Pages/menuPelatihan/index'
+import Verif from './Pages/Auth/verif'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/listpengajar" element={<Listpengajar />} />
       <Route path="/buatpelatihan" element={<Buatpelatihan />} />
+      <Route path="/verification" element={<Verif />} />
     </Routes>
   )
 }

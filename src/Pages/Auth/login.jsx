@@ -55,9 +55,9 @@ const login = () => {
         <body id="">
             <div id="" className="vh-100">
                 <div className="container-fluid row">
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                         <img src={background} className="card-img-top" alt="..." style={{ height: "657px" }} />
-                    </div>
+                    </div> */}
                     <div className="col-md-6">
                         <div className="card mt-5" style={{ width: "670px" }}>
                             <div className="card-body">

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import defaultPhoto from "../../assets/img/user.png";
 
 const index = () => {
   const [photo, setImage] = useState('');
@@ -9,6 +10,14 @@ const index = () => {
     setNama(localStorage.getItem('nama'));
     setImage(localStorage.getItem('photo'));
   });
+
+  function profileUser() {
+    if (photo.split('.')[0] == 'user') {
+      return [defaultPhoto];
+    }
+
+    return photo;
+  }
 
   return (
     <>
@@ -54,7 +63,7 @@ const index = () => {
                   <span className="mr-2 d-none d-lg-inline text-gray-600 small">
                     {nama}
                   </span>
-                  <img className="img-profile rounded-circle" src={photo}/>
+                  <img className="img-profile rounded-circle" src={`${profileUser()}`} />
                 </a>
                 {/* Dropdown - User Information */}
                 <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

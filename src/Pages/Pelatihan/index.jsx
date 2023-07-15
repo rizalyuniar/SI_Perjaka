@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar/index'
 import Navbar from '../../Components/Navbar/index'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import Pelatihan from '../../Components/Table/pelatihan'
 import AOS from 'aos'
@@ -10,6 +10,7 @@ import 'aos/dist/aos.css'
 
 const index = () => {
   const { id } = useParams();
+  const router = useNavigate();
   const [pelatihan, setPelatihan] = useState([]);
   const [form, setForm] = useState({
     materi: "",
@@ -22,7 +23,11 @@ const index = () => {
   }, [])
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/menu/${id}`)
+    axios.get(`http://localhost:8000/menu/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => {
         setPelatihan(res?.data?.data?.[0]);
       })

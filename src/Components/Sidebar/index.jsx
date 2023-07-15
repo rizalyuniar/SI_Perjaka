@@ -121,7 +121,7 @@ const index = () => {
         </div>
       </li>
 
-      {role === "pengajar" ? (
+      {role === "admin" ? (
         <>
           <li className="nav-item">
             <a
