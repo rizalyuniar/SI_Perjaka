@@ -1,4 +1,4 @@
--grafik
+-grafik (lanjut membuat api untuk grafik)
 -pagination(search, sort dll)
 -admin
 -register
