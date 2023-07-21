@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
-const login = () => {
+const Login = () => {
     const router = useNavigate();
     const [login, setLogin] = useState({
         email: "",
@@ -110,4 +110,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;
