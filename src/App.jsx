@@ -12,6 +12,7 @@ import Listpengajar from '../src/Pages/listPengajar/index'
 import Buatpelatihan from './Pages/menuPelatihan/index'
 import Verif from './Pages/Auth/verif'
 import ListPelatihan from './Pages/listPelatihan/index'
+import NotFound from './Pages/PageNotFound'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/buatpelatihan" element={<Buatpelatihan />} />
       <Route path="/verification" element={<Verif />} />
       <Route path="/listpelatihan" element={<ListPelatihan />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
