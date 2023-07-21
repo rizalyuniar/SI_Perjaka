@@ -15,7 +15,7 @@ const register = () => {
     e.preventDefault();
 
     axios
-      .post(`http://localhost:8000/users/registerVerif`, register)
+      .post(`${import.meta.env.VITE_API_ENDPOINT}/users/registerVerif`, register)
       .then((res) => {
         console.log(res.data.message);
         if (res.data.message !== "Check your email") {

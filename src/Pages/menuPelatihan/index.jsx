@@ -10,9 +10,9 @@ import Menu from "../../Components/ModalEdit/menu";
 import Button from "react-bootstrap/Button";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Footer from "../../Components/Footer/index"
 
 const index = () => {
-  const router = useNavigate();
   const [menu, setMenu] = useState([]);
   const [data, setData] = useState([]);
 
@@ -22,7 +22,7 @@ const index = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/menu`)
+      .get(`${import.meta.env.VITE_API_ENDPOINT}/menu`)
       .then((res) => {
         setData(res?.data?.data);
         console.log(res?.data?.data);
@@ -51,7 +51,7 @@ const index = () => {
     }
 
     axios
-      .post(`http://localhost:8000/menu`, formData, {
+      .post(`${import.meta.env.VITE_API_ENDPOINT}/menu`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -97,7 +97,7 @@ const index = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/menu/${id}`)
+          .delete(`${import.meta.env.VITE_API_ENDPOINT}/menu/${id}`)
           .then((response) => {
             Swal.fire(`${response.data.message}`, 'Your file has been deleted.', 'success');
             window.location.reload();
@@ -159,7 +159,7 @@ const index = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 mb-4">
                 <table className="table table-striped" data-aos="zoom-in-up" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="2000">
                   <thead>
                     <tr>
@@ -189,8 +189,8 @@ const index = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="mt-5">{/* <Pelatihan /> */}</div>
             </div>
+            <Footer />
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const menu = ({ id, nama }) => {
     }
 
     axios
-      .put(`http://localhost:8000/menu/${id}`, formData, {
+      .put(`${import.meta.env.VITE_API_ENDPOINT}/menu/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

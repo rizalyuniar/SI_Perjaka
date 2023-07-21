@@ -14,7 +14,7 @@ const login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        axios.post(`http://localhost:8000/users/login`, login)
+        axios.post(`${import.meta.env.VITE_API_ENDPOINT}/users/login`, login)
             .then((res) => {
                 console.log(res.data.data);
                 if (res.data.message !== 'login is successful') {

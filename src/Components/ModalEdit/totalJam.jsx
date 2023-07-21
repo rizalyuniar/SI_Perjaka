@@ -32,7 +32,7 @@ const totalJam = ({ id, total_jam}) => {
     }
 
     axios
-      .put(`http://localhost:8000/users/${id}`, formData, {
+      .put(`${import.meta.env.VITE_API_ENDPOINT}/users/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

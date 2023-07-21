@@ -1,8 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import style from "./style.module.css";
+import Swal from "sweetalert2";
 
 const verif = () => {
+  const [params, setParams] = useSearchParams();
+  const token = params.get("token");
+  const router = useNavigate();
+
+  useEffect (() => {
+    axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/verif/${token}`)
+    .then((res) => {
+      console.log(res.data.message);
+      if (res.data.message !== "User created") {
+        Swal.fire({
+          icon: "error",
+          title: `${err.response.data.message}`,
+          text: "Something went wrong!",
+        });
+      } else {
+        Swal.fire(
+          `${res.data.message}`,
+          "You clicked the button!",
+          "success"
+        );
+      }
+    })
+    .catch((err) =>
+      Swal.fire(
+        `${err.response.data.message}`,
+        "Silahkan melakukan register kembali!",
+        "error",
+        router("/register")
+      )
+    );
+  })
+
   return (
     <div className="container-fluid vw-100">
       <div className="">

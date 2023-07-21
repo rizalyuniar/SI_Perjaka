@@ -9,3 +9,4 @@
 
 select pelatihan.*, users.nama from pelatihan left join users on pelatihan.id_user=users.id where pelatihan.id_user='e3faa8a9-8c86-4539-820f-f27a90b22580';
 return Pool.query(`SELECT * FROM pelatihan WHERE nama_pelatihan LIKE '%${search}%' ORDER BY ${sortBY} ${sort} LIMIT ${limit} OFFSET ${offset}`);
+SELECT COUNT(*) AS total_rows from users where role='pengajar';

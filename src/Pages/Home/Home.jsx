@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar/index";
 import Navbar from "../../Components/Navbar/index";
-import Profile from "../../Components/Card/index";
+import Profile from "../../Components/Card/profil";
 import Footer from "../../Components/Footer/index";
 import axios from "axios";
 import Swal from 'sweetalert2';
@@ -26,7 +26,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/users/profile`, {
+    axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/profile`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

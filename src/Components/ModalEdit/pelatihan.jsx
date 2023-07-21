@@ -30,7 +30,7 @@ const pelatihan = ({ id, nama_pelatihan, materi, durasi, tanggal }) => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:8000/pelatihan/${id}`, data, {
+      .put(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/${id}`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

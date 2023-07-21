@@ -21,7 +21,7 @@ const index = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/pelatihan`)
+      .get(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan`)
       .then((res) => {
         setData(res?.data?.data);
         console.log(res?.data?.data);
@@ -41,7 +41,7 @@ const index = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/pelatihan/${id}`)
+          .delete(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/${id}`)
           .then((response) => {
             Swal.fire(`${response.data.message}`, 'Your file has been deleted.', 'success');
             window.location.reload();

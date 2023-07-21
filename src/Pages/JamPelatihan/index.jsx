@@ -17,14 +17,14 @@ const index = () => {
       }, [])
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/users`, {
+        axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
         })
             .then((res) => {
                 setData(res?.data?.data);
-                console.log(res?.data?.data);
+                // console.log(res?.data?.data);
             })
             .catch((err) => console.log(err));
     }, []);

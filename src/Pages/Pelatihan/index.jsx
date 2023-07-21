@@ -23,7 +23,7 @@ const index = () => {
   }, [])
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/menu/${id}`, {
+    axios.get(`${import.meta.env.VITE_API_ENDPOINT}/menu/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -40,7 +40,7 @@ const index = () => {
   const handleChange = (e) => {
     e.preventDefault();
 
-    axios.post(`http://localhost:8000/pelatihan/${id}`, form, {
+    axios.post(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/${id}`, form, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

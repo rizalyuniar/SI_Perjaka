@@ -11,7 +11,7 @@ const pelatihan = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/pelatihan/detail`, {
+      .get(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/detail`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -35,7 +35,7 @@ const pelatihan = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/pelatihan/${id}`)
+          .delete(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/${id}`)
           .then((response) => {
             Swal.fire(`${response.data.message}`, 'Your file has been deleted.', 'success');
             window.location.reload();
