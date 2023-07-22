@@ -1,7 +1,7 @@
 import React from 'react'
 import Foto from '../../assets/img/foto.jpg'
 
-const index = ({nama, nip, pangkat, jabatan, instansi, npwp, rekening, bank, wi, photo}) => {
+const index = ({nama, nip, pangkat, jabatan, instansi, npwp, rekening, bank, wi, photo, total_jam}) => {
     return (
         <div className="card text-center shadow" style={{ border: "white", borderTopLeftRadius: 20, borderTopRightRadius: 20, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, }}>
             <div className="align-items-center mt-1">
@@ -23,7 +23,8 @@ const index = ({nama, nip, pangkat, jabatan, instansi, npwp, rekening, bank, wi,
                 <li className="list-group-item">No. NPWP {npwp}</li>
                 <li className="list-group-item">No. Rek {rekening}</li>
                 <li className="list-group-item">Bank {bank}</li>
-                <li className="list-group-item">{wi}</li>
+                <li className="list-group-item">WI: {wi}</li>
+                <li className="list-group-item">Total Jam Mengajar Anda {total_jam} Jam</li>
             </ul>
             <div className="card-body">
                 {/* <a href="#" className="card-link">link</a><a href="#" className="card-link">link</a> */}

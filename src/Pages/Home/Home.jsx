@@ -13,6 +13,7 @@ import defaultPhoto from "../../assets/img/user.png"
 const Home = () => {
   const router = useNavigate();
   const [pengajar, setPengajar] = useState([]);
+  const [totaljam, setTotaljam] = useState([]);
 
   useEffect(() => {
     AOS.init();
@@ -33,11 +34,22 @@ const Home = () => {
     })
       .then((res) => {
         setPengajar(res.data.data);
-        console.log(res.data.data);
+        // console.log(res.data.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         router("/login");
+      })
+  }, []);
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/totaljam`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        setTotaljam(res?.data?.data[0]);
       })
   }, []);
 
@@ -121,6 +133,7 @@ const Home = () => {
                     rekening={pengajar.rekening}
                     bank={pengajar.bank}
                     wi={pengajar.wi}
+                    total_jam={totaljam.total_durasi}
                   />
                 </div>
                 {/* ))} */}

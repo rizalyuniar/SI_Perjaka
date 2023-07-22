@@ -10,3 +10,10 @@
 select pelatihan.*, users.nama from pelatihan left join users on pelatihan.id_user=users.id where pelatihan.id_user='e3faa8a9-8c86-4539-820f-f27a90b22580';
 return Pool.query(`SELECT * FROM pelatihan WHERE nama_pelatihan LIKE '%${search}%' ORDER BY ${sortBY} ${sort} LIMIT ${limit} OFFSET ${offset}`);
 SELECT COUNT(*) AS total_rows from users where role='pengajar';
+#semua id
+SELECT id_user, SUM(durasi) AS total_durasi FROM pelatihan GROUP BY id_user;
+#semua nama
+SELECT u.nama, SUM(p.durasi) AS total_durasi FROM pelatihan p JOIN users u ON p.id_user = u.id GROUP BY u.nama;
+SELECT u.email, SUM(p.durasi) AS total_durasi FROM pelatihan p JOIN users u ON p.id_user = u.id where email='rizalyuniar6@gmail.com' GROUP BY u.email;
+#sesuai id
+SELECT id_user, SUM(durasi) AS total_durasi FROM pelatihan WHERE id_user = '70ca695f-c6ed-4a69-aed3-bd1b6659064a' GROUP BY id_user;
