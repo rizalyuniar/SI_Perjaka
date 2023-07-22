@@ -14,9 +14,18 @@ const login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
+        Swal.fire({
+            title: 'Logging in...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
         axios.post(`${import.meta.env.VITE_API_ENDPOINT}/users/login`, login)
             .then((res) => {
-                console.log(res.data.data);
+                // console.log(res.data.data);
+                Swal.close();
                 if (res.data.message !== 'login is successful') {
                     Swal.fire({
                         icon: 'error',
@@ -43,6 +52,7 @@ const login = () => {
             })
             .catch((err) => {
                 // console.log(err.response.data);
+                Swal.close();
                 Swal.fire({
                   icon: "error",
                   title: `${err.response.data.message}`,

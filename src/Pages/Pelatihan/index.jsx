@@ -59,7 +59,7 @@ const index = () => {
             "success"
           );
           setTimeout(() => {
-            setData([]);
+            setPelatihan([]);
             window.location.reload();
           }, 4000);
         }
@@ -132,7 +132,7 @@ const index = () => {
                         <div className="form-group mx-3">
                           <label htmlFor="formGroupExampleInput2">Tanggal Mengajar</label>
                           <input
-                            type="text"
+                            type="date"
                             className="form-control"
                             id="formGroupExampleInput2"
                             onChange={(e) => setForm({ ...form, tanggal: e.target.value })}

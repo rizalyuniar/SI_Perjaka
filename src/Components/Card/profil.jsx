@@ -24,7 +24,7 @@ const index = ({nama, nip, pangkat, jabatan, instansi, npwp, rekening, bank, wi,
                 <li className="list-group-item">No. Rek {rekening}</li>
                 <li className="list-group-item">Bank {bank}</li>
                 <li className="list-group-item">WI: {wi}</li>
-                <li className="list-group-item">Total Jam Mengajar Anda {total_jam} Jam</li>
+                <li className="list-group-item font-weight-bold">Total Durasi Mengajar Anda {total_jam} Jam</li>
             </ul>
             <div className="card-body">
                 {/* <a href="#" className="card-link">link</a><a href="#" className="card-link">link</a> */}
