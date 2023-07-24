@@ -91,7 +91,7 @@ const login = () => {
                       required
                       style={{ borderRadius: "10px", borderColor: "yellow", borderStyle: "solid", marginLeft: "10px", padding: "5px", maxWidth: "300px"}}
                     />
-                    <div id="emailHelp" className="form-text">
+                    <div id="emailHelp" className="form-text text-danger">
                       We'll never share your email with anyone else.
                     </div>
                   </div>
@@ -123,7 +123,7 @@ const login = () => {
                       Check me out
                     </label>
                   </div>
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-warning">
                     Submit
                   </button>
                 </form>
