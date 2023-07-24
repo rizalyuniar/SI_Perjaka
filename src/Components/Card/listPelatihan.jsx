@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import defaultPhoto from "../../assets/img/bg.png"
+import defaultPhoto from "../../assets/img/pelatihan.png"
 
 const listPelatihan = ({ title, image, to }) => {
     function imagePelatihan() {

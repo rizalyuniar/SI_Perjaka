@@ -26,6 +26,13 @@ const Home = () => {
     return pengajar.photo;
   }
 
+  function totalJam() {
+    if (totaljam && totaljam.total_durasi !== undefined) {
+      return totaljam.total_durasi;
+    }
+    return 0;
+  }
+
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/profile`, {
       headers: {
@@ -133,7 +140,7 @@ const Home = () => {
                     rekening={pengajar.rekening}
                     bank={pengajar.bank}
                     wi={pengajar.wi}
-                    total_jam={totaljam.total_durasi}
+                    total_jam={`${totalJam()}`}
                   />
                 </div>
                 {/* ))} */}

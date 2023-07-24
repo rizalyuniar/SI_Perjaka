@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SI from "../../assets/img/newlogo.png"
 
 const index = () => {
   const role = localStorage.getItem("role");
@@ -15,10 +16,14 @@ const index = () => {
         className="sidebar-brand d-flex align-items-center justify-content-center"
         to="/"
       >
-        <div className="sidebar-brand-icon rotate-n-15">
-          <i className="fas fa-laugh-wink" />
+        <div className="sidebar-brand-icon">
+          <img src={SI} alt="" style={{ width: "200px", height: "50px"}} />
         </div>
-        <div className="sidebar-brand-text mx-3">SI Perjaka</div>
+        {/* <div className="row">
+          <div className="sidebar-brand-text">SI Perjaka</div>
+          <div className="" style={{ fontSize: "6px", color: "black"}}>Sistem Informasi Perhitungan Jam Akumulatif Ajar</div>
+        </div> */}
+          
       </Link>
       <hr className="sidebar-divider my-0" />
       <li className="nav-item active">

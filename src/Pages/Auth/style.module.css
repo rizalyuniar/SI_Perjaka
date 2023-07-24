@@ -1,3 +1,19 @@
+/* login */
+.bg {
+    background-image: url(../../assets/img/bg.png);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card {
+    position: relative;
+    right: 0;
+    background: red;
+}
+
+/* verif */
 body {
     background: #f2f2f2;
 }
