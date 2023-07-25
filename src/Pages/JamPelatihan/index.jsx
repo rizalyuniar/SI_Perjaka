@@ -77,7 +77,7 @@ const index = () => {
                                                         jabatan={item.jabatan}
                                                         instansi={item.instansi}
                                                         npwp={item.npwp}
-                                                        rekeing={item.rekeing}
+                                                        rekening={item.rekening}
                                                         wi={item.wi}
                                                     />
                                                 </td>
