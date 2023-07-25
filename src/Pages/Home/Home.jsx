@@ -82,7 +82,7 @@ const Home = () => {
 
     const id = localStorage.getItem('id');
 
-    axios.put(`http://localhost:8000/users/${id}`, formData, {
+    axios.put(`${import.meta.env.VITE_API_ENDPOINT}/users/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
