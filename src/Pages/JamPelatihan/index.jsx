@@ -24,7 +24,7 @@ const index = () => {
         })
             .then((res) => {
                 setData(res?.data?.data);
-                // console.log(res?.data?.data);
+                console.log(res?.data?.data);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -38,14 +38,17 @@ const index = () => {
                         <Navbar />
                         <div className="container vw-100">
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">Total Jam Pengajar</h1>
+                                <h1 class="h3 mb-0 text-gray-800">Biodata Seluruh Akun Pengajar</h1>
                             </div>
                             <table className="table table-striped" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Nama Pengajar</th>
-                                        <th scope="col">Total Jam Mengajar</th>
+                                        <th scope="col">Nip</th>
+                                        <th scope="col">NPWP</th>
+                                        <th scope="col">Instansi</th>
+                                        <th scope="col">jabatan</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -55,11 +58,24 @@ const index = () => {
                                             <tr key={item.id}>
                                                 <th>{index + 1}</th>
                                                 <td>{item.nama}</td>
-                                                <td>{item.total_jam}</td>
+                                                <td>{item.nip}</td>
+                                                <td>{item.pangkat}</td>
+                                                <td>{item.jabatan}</td>
+                                                <td>{item.instansi}</td>
+                                                <td>{item.npwp}</td>
+                                                <td>{item.rekening}</td>
+                                                <td>{item.wi}</td>
                                                 <td>
                                                     <Jam
                                                         id={item.id}
-                                                        total_jam={item.total_jam}
+                                                        nama={item.nama}
+                                                        nip={item.nip}
+                                                        pangkat={item.pangkat}
+                                                        jabatan={item.jabatan}
+                                                        instansi={item.instansi}
+                                                        npwp={item.npwp}
+                                                        rekeing={item.rekeing}
+                                                        wi={item.wi}
                                                     />
                                                 </td>
                                             </tr>

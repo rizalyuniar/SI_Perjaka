@@ -14,6 +14,7 @@ const Home = () => {
   const router = useNavigate();
   const [pengajar, setPengajar] = useState([]);
   const [totaljam, setTotaljam] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     AOS.init();
@@ -75,6 +76,14 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    Swal.fire({
+      title: 'Sedang menyimpan...',
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     const formData = new FormData();
     for (let attr in pengajar) {
       formData.append(attr, pengajar[attr]);
@@ -88,6 +97,7 @@ const Home = () => {
       },
     })
       .then((res) => {
+        Swal.close();
         if (res.data.message !== "User updated") {
           Swal.fire({
             icon: "error",
@@ -103,6 +113,7 @@ const Home = () => {
         }
       })
       .catch((err) => {
+        Swal.close();
         // console.log(err.response.data);
         Swal.fire({
           icon: "error",

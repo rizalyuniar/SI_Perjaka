@@ -7,12 +7,19 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const totalJam = ({ id, total_jam}) => {
+const totalJam = ({ id, nama, nip, pangkat, jabatan, instansi, npwp, rekening, wi}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [data, setData] = useState({
-    total_jam,
+    nama,
+    nip,
+    pangkat,
+    jabatan,
+    instansi,
+    npwp,
+    rekening,
+    wi
   });
 
   const handleChange = (e) => {
@@ -83,11 +90,81 @@ const totalJam = ({ id, total_jam}) => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Total Jam Pelatihan</Form.Label>
+              <Form.Label>Nama</Form.Label>
               <Form.Control
-                type="number"
-                name="total_jam"
-                value={data.total_jam}
+                type="text"
+                name="nama"
+                value={data.nama}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Nip</Form.Label>
+              <Form.Control
+                type="text"
+                name="nip"
+                value={data.nip}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Pangkat</Form.Label>
+              <Form.Control
+                type="text"
+                name="pangkat"
+                value={data.pangkat}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Jabatan</Form.Label>
+              <Form.Control
+                type="text"
+                name="jabatan"
+                value={data.jabatan}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Instansi</Form.Label>
+              <Form.Control
+                type="text"
+                name="instansi"
+                value={data.instansi}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>NPWP</Form.Label>
+              <Form.Control
+                type="text"
+                name="npwp"
+                value={data.npwp}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Rekening</Form.Label>
+              <Form.Control
+                type="text"
+                name="rekening"
+                value={data.rekening}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>WI</Form.Label>
+              <Form.Control
+                type="text"
+                name="wi"
+                value={data.wi}
                 onChange={handleChange}
                 autoFocus
               />

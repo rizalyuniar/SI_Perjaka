@@ -55,7 +55,7 @@ const index = () => {
           <li className="nav-item">
             <Link className="nav-link" to="/jampelatihan">
               <i className="fas fa-fw fa-folder" />
-              <span>Total Jam Pengajar</span>
+              <span>Management Pengajar</span>
             </Link>
           </li>
           <li className="nav-item">
