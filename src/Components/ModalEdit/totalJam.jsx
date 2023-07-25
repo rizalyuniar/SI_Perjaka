@@ -152,7 +152,7 @@ const totalJam = ({ id, nama, nip, pangkat, jabatan, instansi, npwp, rekening, w
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Rekening</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 name="rekening"
                 value={data.rekening}
                 onChange={handleChange}

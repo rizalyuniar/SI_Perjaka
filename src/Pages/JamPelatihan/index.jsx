@@ -46,9 +46,12 @@ const index = () => {
                                         <th scope="col">#</th>
                                         <th scope="col">Nama Pengajar</th>
                                         <th scope="col">Nip</th>
-                                        <th scope="col">NPWP</th>
-                                        <th scope="col">Instansi</th>
+                                        <th scope="col">Pangkat</th>
                                         <th scope="col">jabatan</th>
+                                        <th scope="col">Instansi</th>
+                                        <th scope="col">NPWP</th>
+                                        <th scope="col">Rekening</th>
+                                        <th scope="col">WI</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
