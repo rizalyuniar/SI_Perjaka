@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import background from "../../assets/img/bg.png";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/siperjaka_putih.png"
 import style from "./style.module.css"
 
@@ -77,6 +77,7 @@ const login = () => {
               <div className="card-body">
                 {/* <img src={logo} alt="" style={{ width: "600px"}} /> */}
                 <form onSubmit={handleLogin}>
+                <h1 className="text-center">Login Akun SiPerjaka</h1>
                   <div className="mb-3 row">
                     <label htmlFor="exampleInputEmail1" className="form-label">
                       Email address
@@ -123,9 +124,12 @@ const login = () => {
                       Check me out
                     </label>
                   </div>
-                  <button type="submit" className="btn btn-warning">
-                    Submit
+                  <button type="submit" className="btn btn-warning" style={{ width: "300px" }}>
+                    Login
                   </button>
+                  <div className="mt-3">
+                    <h6>Anda belum memiliki akun SIPerjaka ? Silahkan <Link to="/register" className="text-white font-weight-bold">Register</Link> disini</h6>
+                  </div>
                 </form>
               </div>
             </div>

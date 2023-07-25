@@ -76,6 +76,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
     Swal.fire({
       title: 'Sedang menyimpan...',
       allowOutsideClick: false,
@@ -97,6 +98,7 @@ const Home = () => {
       },
     })
       .then((res) => {
+        setIsLoading(false);
         Swal.close();
         if (res.data.message !== "User updated") {
           Swal.fire({
@@ -113,6 +115,7 @@ const Home = () => {
         }
       })
       .catch((err) => {
+        setIsLoading(false);
         Swal.close();
         // console.log(err.response.data);
         Swal.fire({
@@ -229,7 +232,7 @@ const Home = () => {
                         </label>
                         <input className="form-control" name="photo" onChange={handleUpload} type="file" id="formFile" />
                       </div>
-                      <button type="submit" className="btn btn-primary">
+                      <button type="submit" className="btn btn-primary" disabled={isLoading}>
                         Simpan
                       </button>
                     </form>
