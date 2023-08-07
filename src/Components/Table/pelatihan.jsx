@@ -10,6 +10,14 @@ const pelatihan = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    Swal.fire({
+      title: 'Loading... <br> Memuat Data',
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     axios
       .get(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/detail`, {
         headers: {
@@ -18,9 +26,13 @@ const pelatihan = () => {
       })
       .then((res) => {
         setData(res?.data?.data);
-        console.log(res?.data?.data);
+        Swal.close();
+        // console.log(res?.data?.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        Swal.close();
+      });
   }, []);
 
   const handleDelete = (id) => {

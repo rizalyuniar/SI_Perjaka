@@ -101,8 +101,8 @@ const index = () => {
                   </div>
                   <div className="card-body">
                     <form onSubmit={handleChange}>
-                      <div className="d-flex">
-                        <div className="form-group mx-3">
+                      <div className="row">
+                        <div className="form-group col-md-6 col-lg-4 col-12">
                           <label htmlFor="formGroupExampleInput">Nama Pelatihan</label>
                           <input
                             type="readonly"
@@ -111,7 +111,7 @@ const index = () => {
                             id="formGroupExampleInput"
                           />
                         </div>
-                        <div className="form-group mx-3">
+                        <div className="form-group col-md-6 col-lg-4 col-12">
                           <label htmlFor="formGroupExampleInput2">Penugasan/Materi</label>
                           <input
                             type="text"
@@ -120,7 +120,7 @@ const index = () => {
                             onChange={(e) => setForm({ ...form, materi: e.target.value })}
                           />
                         </div>
-                        <div className="form-group mx-3">
+                        <div className="form-group col-md-6 col-lg-2 col-12">
                           <label htmlFor="formGroupExampleInput2">Durasi Mengajar</label>
                           <input
                             type="number"
@@ -129,7 +129,7 @@ const index = () => {
                             onChange={(e) => setForm({ ...form, durasi: e.target.value })}
                           />
                         </div>
-                        <div className="form-group mx-3">
+                        <div className="form-group col-md-6 col-lg-2 col-12">
                           <label htmlFor="formGroupExampleInput2">Tanggal Mengajar</label>
                           <input
                             type="date"
@@ -139,7 +139,7 @@ const index = () => {
                           />
                         </div>
                       </div>
-                      <button type="submit" className="btn btn-primary mx-3">
+                      <button type="submit" className="btn btn-primary">
                         Submit
                       </button>
                     </form>

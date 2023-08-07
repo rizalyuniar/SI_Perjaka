@@ -1,5 +1,4 @@
 import React from 'react'
-import Foto from '../../assets/img/foto.jpg'
 
 const index = ({nama, nip, pangkat, jabatan, instansi, npwp, rekening, bank, wi, photo, total_jam}) => {
     return (

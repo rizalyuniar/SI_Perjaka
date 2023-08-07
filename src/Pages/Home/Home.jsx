@@ -142,7 +142,7 @@ const Home = () => {
               <div className="row">
                 {/* profile card */}
                 {/* {pengajar.map((item) =>( */}
-                <div className="col-md-5 col-sm-12 col-12 mb-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                <div className="col-md-6 col-sm-12 col-12 col-lg-5 mb-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                   <Profile
                     photo={`${profileUser()}`}
                     nama={pengajar.nama}
@@ -159,7 +159,7 @@ const Home = () => {
                 </div>
                 {/* ))} */}
                 {/* form biodata */}
-                <div className="col-md-7 col-sm-12 col-12 mb-3" data-aos="fade-down-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                <div className="col-md-6 col-sm-12 col-12 col-lg-7 mb-3" data-aos="fade-down-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                   <div className="card">
                     <div className="card-body">
                       <h5 className="card-title font-weight-bold">

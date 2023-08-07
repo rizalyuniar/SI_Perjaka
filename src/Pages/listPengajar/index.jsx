@@ -10,24 +10,59 @@ import List from "../../Components/ModalEdit/listPengajar";
 import Swal from "sweetalert2";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { Link } from "react-router-dom";
 
 const index = () => {
-  const [data, setData] = useState([]);
   const role = localStorage.getItem("role");
-  
-  useEffect(() => {
-    AOS.init();
-  }, [])
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [pagination, setPagination] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
+  // const [sortBY, setSortBy] = useState("name");
+  // const [sort, setsortOrder] = useState("asc");
 
   useEffect(() => {
+    AOS.init();
+    filterPengajar(search, currentPage);
+  }, [])
+
+  const filterPengajar = (key, page) => {
+    Swal.fire({
+      title: 'Loading... <br> Memuat Data',
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     axios
-      .get(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan`)
+      .get(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan?search=${search ? search : ""}&page=${page ? page : 1}`)
       .then((res) => {
         setData(res?.data?.data);
-        console.log(res?.data?.data);
+        setPagination(res.data.pagination);
+        setLoading(false);
+        Swal.close();
+        // console.log(res?.data?.data);
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => {
+        console.log(err)
+        setLoading(false);
+        Swal.close();
+      });
+  };
+
+  const handleSearch = async (e) => {
+    if (e.key === "Enter") {
+      setCurrentPage(1);
+      filterPengajar(search, currentPage);
+    }
+  };
+  const handlePage = (page) => {
+    setCurrentPage(page);
+    filterPengajar(search, page);
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -59,11 +94,14 @@ const index = () => {
           <div id="content">
             <Navbar />
             <div className="container vw-100">
-              <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Daftar Pengajar Mengikuti Pelatihan</h1>
-              </div>
               {role === "admin" ? (
                 <>
+                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Daftar Pengajar Mengikuti Pelatihan</h1>
+                    <Link href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                      <i class="fas fa-download fa-sm text-white-50"></i> Cetak Dokumen
+                    </Link>
+                  </div>
                   <table className="table table-striped" data-aos="zoom-in-down" data-aos-duration="2000">
                     <thead>
                       <tr>
@@ -98,9 +136,45 @@ const index = () => {
                         ))}
                     </tbody>
                   </table>
+                  <div className="justify-content-center d-flex mt-2 mb-3">
+                    <div className="">
+                      {pagination && (
+                        <>
+                          {pagination.currentPage > 1 ? (
+                            <button className="rounded" style={{ color: "white", background: "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px" }} onClick={() => handlePage(pagination.currentPage - 1)}>
+                              Prev
+                            </button>
+                          ) : (
+                            <button className="rounded" style={{ color: "white", background: "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px", pointerEvents: "none", opacity: "0.5" }} disabled>
+                              Prev
+                            </button>
+                          )}
+
+                          {new Array(pagination.totalPage).fill().map((item, index) => (
+                            <button className="rounded" style={{ background: index + 1 === currentPage ? "#e9e9e9" : "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px" }} onClick={() => handlePage(index + 1)} key={index}>
+                              {index + 1}
+                            </button>
+                          ))}
+
+                          {pagination.currentPage < pagination.totalPage ? (
+                            <button className="rounded" style={{ background: "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px" }} onClick={() => handlePage(pagination.currentPage + 1)}>
+                              Next
+                            </button>
+                          ) : (
+                            <button className="rounded" style={{ background: "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px", pointerEvents: "none", opacity: "0.5" }} disabled>
+                              Next
+                            </button>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </>
               ) : (
                 <>
+                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Daftar Pengajar Mengikuti Pelatihan</h1>
+                  </div>
                   <table className="table table-striped" data-aos="zoom-in-down" data-aos-duration="2000">
                     <thead>
                       <tr>

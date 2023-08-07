@@ -141,7 +141,7 @@ const index = () => {
                         </div>
                         <div className="mb-3 mx-5">
                           <label htmlFor="formFile" className="form-label">
-                            Upload Foto Profile
+                            Upload Foto Pelatihan
                           </label>
                           <input
                             className="form-control"
