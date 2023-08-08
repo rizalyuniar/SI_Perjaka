@@ -44,7 +44,7 @@ const index = () => {
         setPagination(res.data.pagination);
         setLoading(false);
         Swal.close();
-        // console.log(res?.data?.data);
+        console.log(res?.data?.data);
       })
       .catch((err) => {
         console.log(err)
@@ -98,7 +98,7 @@ const index = () => {
                 <>
                   <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Daftar Pengajar Mengikuti Pelatihan</h1>
-                    <Link href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <Link to="/cetak" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                       <i class="fas fa-download fa-sm text-white-50"></i> Cetak Dokumen
                     </Link>
                   </div>

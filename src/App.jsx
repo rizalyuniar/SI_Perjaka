@@ -13,6 +13,7 @@ import Buatpelatihan from './Pages/menuPelatihan/index'
 import Verif from './Pages/Auth/verif'
 import ListPelatihan from './Pages/listPelatihan/index'
 import NotFound from './Pages/PageNotFound'
+import CetakPengajar from './Pages/CetakAdmin/cetakPengajar'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/buatpelatihan" element={<Buatpelatihan />} />
       <Route path="/verification" element={<Verif />} />
       <Route path="/listpelatihan" element={<ListPelatihan />} />
+      <Route path="/cetak" element={<CetakPengajar />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

@@ -1,5 +1,5 @@
 -grafik (lanjut membuat api untuk grafik)
--pagination(search, sort dll)
+-pagination(search, sort dll) (urutan penomoran di pagination masih belum)
 -admin
 -register
 -action(edit delete) mendaftar pelatihan
