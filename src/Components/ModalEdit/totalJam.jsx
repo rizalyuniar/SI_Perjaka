@@ -7,7 +7,7 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const totalJam = ({ id, nama, nip, pangkat, jabatan, instansi, npwp, rekening, wi}) => {
+const totalJam = ({ id, nama, nip, pangkat, jabatan, instansi, npwp, rekening, bank, wi}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -19,6 +19,7 @@ const totalJam = ({ id, nama, nip, pangkat, jabatan, instansi, npwp, rekening, w
     instansi,
     npwp,
     rekening,
+    bank,
     wi
   });
 
@@ -155,6 +156,16 @@ const totalJam = ({ id, nama, nip, pangkat, jabatan, instansi, npwp, rekening, w
                 type="number"
                 name="rekening"
                 value={data.rekening}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Bank</Form.Label>
+              <Form.Control
+                type="text"
+                name="bank"
+                value={data.bank}
                 onChange={handleChange}
                 autoFocus
               />

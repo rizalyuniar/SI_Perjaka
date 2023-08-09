@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar/index'
 import Navbar from '../../Components/Navbar/index'
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import Pelatihan from '../../Components/Table/pelatihan'
 import AOS from 'aos'
@@ -12,6 +12,7 @@ const index = () => {
   const { id } = useParams();
   const router = useNavigate();
   const [pelatihan, setPelatihan] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     materi: "",
     durasi: "",
@@ -40,12 +41,23 @@ const index = () => {
   const handleChange = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
+    Swal.fire({
+      title: 'Sedang menyimpan...',
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     axios.post(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/${id}`, form, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     })
       .then((res) => {
+        setIsLoading(false);
+        Swal.close();
         if (res.data.message !== "Pelatihan created") {
           Swal.fire({
             icon: "error",
@@ -65,6 +77,8 @@ const index = () => {
         }
       })
       .catch((err) => {
+        setIsLoading(false);
+        Swal.close();
         // console.log(err.response.data);
         Swal.fire({
           icon: "error",
@@ -84,6 +98,9 @@ const index = () => {
             <div className="container vw-100">
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 className="h3 mb-0 text-gray-800">Mendaftar Pelatihan {pelatihan.nama}</h1>
+                <Link to="/cetakpengajar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                  <i class="fas fa-download fa-sm text-white-50"></i> Cetak Dokumen
+                </Link>
               </div>
               {pelatihan.photo !== "menu.png" ? (
                 <>

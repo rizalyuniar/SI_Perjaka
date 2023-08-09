@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 
-const cetakPengajar = () => {
+const cetakAdmin = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const cetakPengajar = () => {
 
     const blob = await wb.xlsx.writeBuffer();
 
-    saveAs(new Blob([blob]), 'data_pengajar.xlsx');
+    saveAs(new Blob([blob]), 'all_data_pengajar.xlsx');
   };
 
   return (
@@ -88,4 +88,4 @@ const cetakPengajar = () => {
   )
 }
 
-export default cetakPengajar
+export default cetakAdmin

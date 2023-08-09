@@ -4,7 +4,7 @@ import reactLogo from './assets/react.svg'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Pelatihan from './Pages/Pelatihan/index'
-import Jampelatihan from './Pages/JamPelatihan/index'
+import Jampelatihan from './Pages/MagagePengajar/index'
 import Dashboard from './Pages/Dashboard/index'
 import Login from './Pages/Auth/login'
 import Register from './Pages/Auth/register'
@@ -13,7 +13,8 @@ import Buatpelatihan from './Pages/menuPelatihan/index'
 import Verif from './Pages/Auth/verif'
 import ListPelatihan from './Pages/listPelatihan/index'
 import NotFound from './Pages/PageNotFound'
-import CetakPengajar from './Pages/CetakAdmin/cetakPengajar'
+import CetakAdmin from './Pages/Cetak/cetakAdmin'
+import CetakPengajar from './Pages/Cetak/cetakPengajar'
 
 function App() {
 
@@ -29,7 +30,8 @@ function App() {
       <Route path="/buatpelatihan" element={<Buatpelatihan />} />
       <Route path="/verification" element={<Verif />} />
       <Route path="/listpelatihan" element={<ListPelatihan />} />
-      <Route path="/cetak" element={<CetakPengajar />} />
+      <Route path="/cetak" element={<CetakAdmin />} />
+      <Route path="/cetakpengajar" element={<CetakPengajar />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

@@ -11,6 +11,7 @@ const pelatihan = ({ id, nama_pelatihan, materi, durasi, tanggal }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     nama_pelatihan,
     materi,
@@ -29,6 +30,15 @@ const pelatihan = ({ id, nama_pelatihan, materi, durasi, tanggal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
+    Swal.fire({
+      title: 'Sedang menyimpan...',
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     axios
       .put(`${import.meta.env.VITE_API_ENDPOINT}/pelatihan/${id}`, data, {
         headers: {
@@ -36,6 +46,8 @@ const pelatihan = ({ id, nama_pelatihan, materi, durasi, tanggal }) => {
         },
       })
       .then((res) => {
+        setIsLoading(false);
+        Swal.close();
         if (res.data.message !== "Pelatihan updated") {
           Swal.fire({
             icon: "error",
@@ -55,6 +67,8 @@ const pelatihan = ({ id, nama_pelatihan, materi, durasi, tanggal }) => {
         }
       })
       .catch((err) => {
+        setIsLoading(false);
+        Swal.close();
         // console.log(err.response.data);
         Swal.fire({
           icon: "error",

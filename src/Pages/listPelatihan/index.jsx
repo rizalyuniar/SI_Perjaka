@@ -113,7 +113,7 @@ const index = () => {
                       )}
 
                       {new Array(pagination.totalPage).fill().map((item, index) => (
-                        <button className="rounded" style={{ background: "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px" }} onClick={() => handlePage(index + 1)} key={index}>
+                        <button className="rounded" style={{ background: index + 1 === currentPage ? "#e9e9e9" : "#4e73df", fontSize: "20px", paddingTop: "0px", paddingBottom: "0px", paddingLeft: "9px", paddingRight: "9px", margin: "2px" }} onClick={() => handlePage(index + 1)} key={index}>
                           {index + 1}
                         </button>
                       ))}

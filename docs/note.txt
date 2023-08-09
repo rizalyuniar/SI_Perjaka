@@ -1,11 +1,6 @@
+-tambahkan loading ketika menyimpan mendaftar pelatihan
+-management pengajar (bank, loading saat update,paginasi)
 -grafik (lanjut membuat api untuk grafik)
--pagination(search, sort dll) (urutan penomoran di pagination masih belum)
--admin
--register
--action(edit delete) mendaftar pelatihan
--list all data pengajar
--jam pelatihan
--cetak
 
 select pelatihan.*, users.nama from pelatihan left join users on pelatihan.id_user=users.id where pelatihan.id_user='e3faa8a9-8c86-4539-820f-f27a90b22580';
 return Pool.query(`SELECT * FROM pelatihan WHERE nama_pelatihan LIKE '%${search}%' ORDER BY ${sortBY} ${sort} LIMIT ${limit} OFFSET ${offset}`);
